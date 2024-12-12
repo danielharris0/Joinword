@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box; /*Padding is included in widths and heights specified*/
+}
+
+html {
+  height: 100%;
+  overflow: hidden; /* Hide the scrollbar */
+}
+
+body {
+  height: 100%;
+}
+
+button {
+
+  font-size: 24px;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden; /* Ensure content stays within the viewport */
+}
+
+#menuBar {
+  height: 5vh;
+  width: 100%;
+  background-color: #B1DFE5;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+#pauseButton {
+  margin: 5px;
+}
+#timer {
+  margin-right: 5px;
+  font-size: min(10vw, 5vh - 10px);
+  background-color: #c6f3ff;
+  border-radius: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.svgContainer {
+  width: 100%; /* Full width for centering */
+  max-height: calc(100% - 5vh); /* Subtract text height (above and below) */
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  margin-top: -5px; /*This top margin/padding fixes a weird 1 pixel jitter.*/
+  padding-top: 5px;
+  padding-bottom:13px; /*Because the bottom for some reason doesn't get hit soon enough by the viewport edge*/
+}
+
+.floatingNum {
+  color: red;
+  background: none;
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+  font-size: calc(min(10vw, 5vh - 10px) * 0.7);
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.popup {
+  background: none;
+  border: none;
+  position: absolute;
+  padding: 0;
+  top: 7vh;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  visibility: hidden;
+  transition: 0.25s;
+}
+
+.popup img {
+  height: min(10vh, 20vw);
+  filter: drop-shadow(0px 4px 5px #222);
+}
+
+
+.popup.active{
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#background {fill:rgb(255, 255, 255);}
+.labelText {font-size: 1em; user-select: none;   font-family: Arial, sans-serif;}
+.labelBackground {fill: #D3C6C6; rx:10px; stroke:black; stroke-width: 2px;}
+.connectorLine {stroke:#000; stroke-width:5px; stroke-linecap:round; }
+.pencilLine {stroke:#8e95d1; stroke-width:1.5px; stroke-linecap:round; stroke-dasharray: 8;}
+.xCounterText {font-size: 1.8em; font-weight: 600; user-select: none;}
+.xCounterTextSubtitle {font-size: 0.9em; font-weight: 500; user-select: none;}

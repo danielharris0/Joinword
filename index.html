@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<html>
+  <head>    
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="menuBar">
+        <button id="pauseButton"  onmousedown = "PauseButtonPressed()">Pause</button>
+        <span id="timer" class="prevent-select">00:00</span>
+      </div>
+      <div class="svgContainer">
+        <svg id="svgCanvas" viewBox="0 0 430 775" xmlns="http://www.w3.org/2000/svg"></svg>
+      </div>
+    </div>
+
+
+    <button class="popup"><img></img></button>
+
+  </body>
+
+</html>
+
+<script src="scripts/libs/picoModal.js"> </script>
+
+<script src="scripts/globals.js"> </script>
+
+<script src="scripts/sceneManager.js"> </script>
+
+<script src="scripts/utils/textWrapper.js"> </script>
+<script src="scripts/utils/utils.js"> </script>
+
+<script src="scripts/svgLabels.js"> </script>
+<script src="scripts/svgLines.js"> </script>
+
+<script src="scripts/timer.js"> </script>
+<script src="scripts/puzzle.js"> </script>
+<script src="scripts/content.js"> </script>
+<script src="scripts/buttons.js"> </script>
+<script src="scripts/index.js"> </script>
+<script src="scripts/listeners.js"> </script>
