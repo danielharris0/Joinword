@@ -1,3 +1,9 @@
+/*
+    TODO:
+    - special puzzle elements / modes
+    - fix what happens when we run as a local instance (no cookies)
+*/
+
 SetCurrentPuzzle(GetDailyPuzzleNum());
 
 ReadCookiesAndCompareToCurrentDay();

@@ -17,6 +17,9 @@ class SceneManager {
         Timer.Pause();
         lineDrawingActive = false;
 
+        //Date
+        document.querySelector(".date").innerHTML = GetDateString(new Date());
+
         //Menu bar play button
         document.querySelector('.pauseButton img').setAttribute('src', 'icons/play.png');
         document.querySelector('.pauseButton').setAttribute('onmousedown', 'PlayButtonPressed()');

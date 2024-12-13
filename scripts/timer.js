@@ -1,3 +1,13 @@
+function GetDateString(date) {
+    let dateString = date.toDateString();
+    let day = parseInt(dateString.slice(8,10));
+    let th = "th";
+    if (day==1) th = "st";
+    if (day==2) th = "nd";
+    if (day==3) th = "rd";
+    return day.toString() + th + ' ' + dateString.slice(4,7) + ' ' + dateString.slice(11,15);
+}
+
 function GetDailyPuzzleNum() {
     //The 'zero date' (the moment the first puzzles goes live) is midnight in whatever timezone the play is in - thus 24 hours later is also at midnight
     let dateZero = new Date('December 13, 2024 00:00:00');
