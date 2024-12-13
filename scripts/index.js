@@ -1,9 +1,4 @@
-/*
-    TODO:
-        - fix admire timer
-*/
-
-SetCurrentPuzzle(0);
+SetCurrentPuzzle(GetDailyPuzzleNum());
 
 ReadCookiesAndCompareToCurrentDay();
 LoadLinesFromCookies();

@@ -1,6 +1,6 @@
 function GetDailyPuzzleNum() {
     //The 'zero date' (the moment the first puzzles goes live) is midnight in whatever timezone the play is in - thus 24 hours later is also at midnight
-    let dateZero = new Date('December 10, 2024 00:00:00');
+    let dateZero = new Date('December 13, 2024 00:00:00');
     //Daily puzzle increments at midnight local time
     return Math.floor((new Date() - dateZero) / (1000*60*60*24));
 }
