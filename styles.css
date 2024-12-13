@@ -36,9 +36,23 @@ button {
   flex-direction: row;
   align-items: center;
 }
-#pauseButton {
+
+.pauseButton {
+  padding: 0;
   margin: 5px;
+  border: none;
+  background-color: #B1DFE5;
+
+  height: 80%;
+
+  font-size: min(10vw, 5vh - 10px);
+  border-radius: 4px;
 }
+.pauseButton img {
+  height: 100%;
+  filter: drop-shadow(0px 2px 1px #222);
+}
+
 #timer {
   margin-right: 5px;
   font-size: min(10vw, 5vh - 10px);
@@ -80,7 +94,7 @@ svg {
   font-family: sans-serif;
 }
 
-.popup {
+.floatingCircle {
   background: none;
   border: none;
   position: absolute;
@@ -92,15 +106,104 @@ svg {
   transition: 0.25s;
 }
 
-.popup img {
+.floatingCircle img {
   height: min(10vh, 20vw);
   filter: drop-shadow(0px 4px 5px #222);
 }
 
 
-.popup.active{
+.floatingCircle.active{
   visibility: visible;
   transform: translate(-50%, -50%) scale(1);
+}
+
+.content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  width: 75%;
+  margin-top: 4vh;
+  margin-bottom: 0;
+}
+
+.divider { height: 6vh; }
+.smallDivider { height: 1vh; }
+
+.date {
+  font-family: serif;
+  font-size: 3vh;
+}
+
+.progressNotifier{
+  font-family: sans-serif;
+  font-size: 4vh;
+  font-weight: 600;
+
+  padding-left: 10px;padding-right: 10px;
+  padding-left: 5px;padding-right: 5px;
+  margin-left: 0; margin-right: auto;
+}
+
+.unsolved {
+  color: #000;
+}
+.in-progress{
+  color: #000
+}
+.solved{
+  color: #000;
+}
+.in {
+  color: #000;
+  font-weight: 500;
+}
+
+.blue {background-color: #c6f3ff}
+.orange {background-color: #E5C9B1}
+
+.fontSizeMedium {font-size: 5vh;}
+.fontSizeSmall {font-size: 4vh;}
+
+.stat-block {
+  background-color: B1DFE5;
+
+  border-radius: 4px;
+
+  margin-left:auto; margin-right:auto; /*Expand margins as much as possible to shrink the stat block as much as possible*/
+  padding-left: 5px; padding-right: 5px;
+}
+
+
+
+.mainMenuButton {
+
+  padding-top: 4px; padding-bottom: 4px;
+  margin-left: auto; margin-right: auto; /*This centers the div in the parent div*/
+
+  border-radius: 5px;
+
+  filter: drop-shadow(0px 2px 2px #222);
+
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+.mainMenuButton span{
+  font-family: sans-serif;
+  font-size: calc(min(10vw, 5vh - 10px) * 1.5);
+  font-weight: bold;
+  height: 100%;
+  margin-left: 10px; margin-right: 10px;
+}
+.mainMenuButton img {
+  height: calc(min(10vw, 5vh - 10px) * 1.5);
+  margin-left: 10px; margin-right: 10px;
 }
 
 #background {fill:rgb(255, 255, 255);}

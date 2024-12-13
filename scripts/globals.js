@@ -1,6 +1,7 @@
 let mouseDown = false;
 let svg = document.getElementById("svgCanvas");
 let timerElement = document.getElementById("timer");
+let lineDrawingActive = false;
 
 let puzzle;
 let lines = [];

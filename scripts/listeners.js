@@ -1,11 +1,16 @@
 //Whenever the viewport changes size, we use the auto-rescaled svg element to set the width of the menu bar
-function LimitMenuBarWidthToSVGCanvas() {
-    const element = document.getElementById("background");
-    let width = element.getBoundingClientRect().width.toString() + "px";
-    document.getElementById("menuBar").style["width"] = width;
+function LimitHTMLWidthToSVGCanvas() {
+    let svgBackground = document.getElementById("background")
+    let rect = svgBackground.getBoundingClientRect();
+    document.getElementById("menuBar").style["width"] = rect.width.toString() + "px";
+
+    document.querySelector(".content").style["width"] = rect.width.toString() + "px";
+    document.querySelector(".content").style["top"] = rect.top.toString() + "px";
+    document.querySelector(".content").style["left"] = rect.left.toString() + "px";
+    document.querySelector(".content").style["height"] = rect.height.toString() + "px";
   }
-  window.onresize = LimitMenuBarWidthToSVGCanvas;
-  LimitMenuBarWidthToSVGCanvas();
+  window.onresize = LimitHTMLWidthToSVGCanvas;
+  LimitHTMLWidthToSVGCanvas();
   
   
 addEventListener("mouseup", (event) => {

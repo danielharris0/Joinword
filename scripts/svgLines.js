@@ -1,15 +1,32 @@
+function LoadLinesFromCookies() {
+  let connections = JSON.parse(GetCookie('daily_lines'));
+  console.log(connections);
+  for (let connection of connections) {
+    var [xa,ya] = GetDotPosition(0, connection[0]);
+    var [xb,yb] = GetDotPosition(1, connection[1]);
+    var element = AddElementToSVG('line', {"class": "connectorLine", x1:xa, y1:ya, x2:xb, y2:yb});
+    lines.push({"element": element, "ends": connection});
+  }
+}
+
 function OnLinesChanged() {
-    let popup = document.querySelector(".popup");
+    let floatingCircle = document.querySelector(".floatingCircle");
     if (lines.length == puzzle.N) {
-        popup.setAttribute('onmousedown','CheckButtonPressed()');
-        let icon = popup.children[0];
+        floatingCircle.setAttribute('onmousedown','CheckButtonPressed()');
+        let icon = floatingCircle.children[0];
         CancelAllAnimations(icon);
         icon.animate([{transform: "scale(1.1)"}, {transform:"scale(1.0)"}], {duration: 1000,iterations: Infinity})
         icon.setAttribute('src', 'icons/question.png');
-        popup.classList.add("active");
+        floatingCircle.classList.add("active");
     } else {
-        popup.classList.remove("active");
-    }        
+      floatingCircle.classList.remove("active");
+    }
+    
+    
+    //Save lines to cookies
+    let connections = [];
+    for (let line of lines) connections.push(line.ends);
+    SetCookie('daily_lines', JSON.stringify(connections));
 }
 
 function GetLineConnectedToLabel(xIndex, yIndex) {
@@ -19,11 +36,6 @@ function GetLineConnectedToLabel(xIndex, yIndex) {
     return null;
 }
 
-function RemoveLine(line) {
-    line.element.remove(); //remove the svg line element
-    lines = lines.filter((x) => x!=line); //remove the entry from the list of lines
-    OnLinesChanged();
-}
 
 function NewDraggingLine(xIndex, yIndex) {
     var [x,y] = GetDotPosition(xIndex, yIndex);
@@ -31,6 +43,12 @@ function NewDraggingLine(xIndex, yIndex) {
     currentDraggingLine = {"element": lineEl, ends: [null, null]};
     currentDraggingLine.ends[xIndex] = yIndex;
     currentDraggingLineStartX = xIndex;
+}
+
+function RemoveLine(line) {
+  line.element.remove(); //remove the svg line element
+  lines = lines.filter((x) => x!=line); //remove the entry from the list of lines
+  OnLinesChanged();
 }
 
 function AddDraggingToLines() {
@@ -41,7 +59,7 @@ function AddDraggingToLines() {
 
 //Dragging Inputs:
 function OnDrag(x, y) {
-    if (currentDraggingLine!=null) {
+    if (lineDrawingActive && currentDraggingLine!=null) {
       var point = new DOMPoint(x, y);
       point = point.matrixTransform(svg.getScreenCTM().inverse());
   
@@ -65,22 +83,24 @@ function OnDrag(x, y) {
   }
   
   function OnDragStart(x, y) {
-    for (let yIndex=0; yIndex<puzzle.N; yIndex++) {
-      for (let xIndex=0; xIndex<2; xIndex++) {
-        if (IsPointOnLabel(x,y,xIndex,yIndex)) {
-          var line = GetLineConnectedToLabel(xIndex, yIndex);
-          if (line!=null) RemoveLine(line);
-  
-          NewDraggingLine(xIndex, yIndex);
-  
-          return; 
+    if (lineDrawingActive) {
+      for (let yIndex=0; yIndex<puzzle.N; yIndex++) {
+        for (let xIndex=0; xIndex<2; xIndex++) {
+          if (IsPointOnLabel(x,y,xIndex,yIndex)) {
+            var line = GetLineConnectedToLabel(xIndex, yIndex);
+            if (line!=null) RemoveLine(line);
+    
+            NewDraggingLine(xIndex, yIndex);
+    
+            return; 
+          }
         }
       }
     }
   }
   
   function OnDragEnd() {
-    if (currentDraggingLine!=null) {
+    if (lineDrawingActive && currentDraggingLine!=null) {
   
       var x = currentDraggingLine.element.getAttribute('x2');
       var y = currentDraggingLine.element.getAttribute('y2');

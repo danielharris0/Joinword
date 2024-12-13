@@ -48,14 +48,16 @@ function BuildNodeSVG(puzzle, xIndex, yIndex) {
   BuildDotSVG(xIndex, yIndex);
 }
 
+function AddSVGBackground() {
+  let canvasSize = GetCanvasSize();
+  AddElementToSVG('rect', {x:"0", y:"0", width:canvasSize.width, height:canvasSize.height, "id":"background"});
+}
+
 function BuildPuzzleSVG(puzzle) {
   svg.innerHTML = ""; //Remove all existing svg elements
 
-  //Background
-  let canvasSize = GetCanvasSize();
-  AddElementToSVG('rect', {x:"0", y:"0", width:canvasSize.width, height:canvasSize.height, "id":"background"});
-
-
+  //Re-Add Background
+  AddSVGBackground();
 
   for (let i=0; i<puzzle.N; i++) {
       if (puzzle.clues[0]!=null) BuildNodeSVG(puzzle, 0, i);

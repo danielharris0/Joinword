@@ -9,7 +9,9 @@
   <body>
     <div class="container">
       <div id="menuBar">
-        <button id="pauseButton"  onmousedown = "PauseButtonPressed()">Pause</button>
+        <button class="pauseButton"  onmousedown = "PlayButtonPressed()">
+          <img src="icons/play.png"> </img>
+        </button>
         <span id="timer" class="prevent-select">00:00</span>
       </div>
       <div class="svgContainer">
@@ -17,8 +19,24 @@
       </div>
     </div>
 
+    <div class="content">
+      <img src="icons/logo.png" class="logo"> </img>
+      <div class="date">12th Dec 2024</div>
 
-    <button class="popup"><img></img></button>
+      <div class="divider"></div>
+
+      <div class="context-specific-menu-section">
+
+        
+      </div>
+
+      <div class="mainMenuButton blue" id="mainPlayButton" style="margin-top: auto;" onmousedown="PlayButtonPressed()">
+        <span>Play</span>
+        <img src="icons/play.png"> </img>
+      </div>
+    </div>
+
+    <button class="floatingCircle"><img></img></button>
 
   </body>
 

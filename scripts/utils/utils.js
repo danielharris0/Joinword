@@ -10,18 +10,24 @@ function AddElementToSVG(name, attrs ) {
   return svg.appendChild(el);
 }
 
+function AddElementAsChild(parent, name, attrs) {
+  var el = document.createElement(name);
+  SetAttributes(el, attrs);
+  return parent.appendChild(el);
+}
+
 function SetAttributes(el, attrs) {
   for (var attr in attrs) el.setAttribute(attr,attrs[attr]);
 }
 
-function SetCookie(cname, cvalue, exdays) {
+function SetCookie(cname, cvalue, ms_until_expiry = 1000*60*60*24) {
   const d = new Date();
-  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  d.setTime(d.getTime() + ms_until_expiry);
   let expires = "expires="+ d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
-function GetCookie(cname) {
+function GetCookie(cname, defaultValue = "") {
   let name = cname + "=";
   let decodedCookie = decodeURIComponent(document.cookie);
   let ca = decodedCookie.split(';');
@@ -34,7 +40,7 @@ function GetCookie(cname) {
       return c.substring(name.length, c.length);
     }
   }
-  return "";
+  return defaultValue;
 }
 
 function CookieExists(cname) {
