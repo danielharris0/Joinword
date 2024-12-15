@@ -1,7 +1,20 @@
 /*
     TODO:
     - special puzzle elements / modes
+        - semantic lock
+        - seperate the central dots
     - fix what happens when we run as a local instance (no cookies)
+
+    - increase penalty
+    - multi-dot labels
+    - support for custom label styling (e.g. bold, italics, colors)
+
+    - auto gen from dataset
+    - 'special edition' indicator
+    - play special editions archive button
+
+
+    - black dots and white dots (white dots *could* be connected but needn't be)
 */
 
 SetCurrentPuzzle(GetDailyPuzzleNum());

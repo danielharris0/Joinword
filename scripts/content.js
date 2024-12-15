@@ -15,14 +15,14 @@ const PUZZLES = [
     [[4], [1,2], [2,3],[1,4]]
   ),
   new Puzzle(
-    ["alphabetic homophone",'might begin a question','wherefore','form of the verb \'is\''],
-    ["see","be","are","why"],
-    [[1,2,3,4],[3,4],[4],[2,3]]
-  ),
-  new Puzzle(
     ['solid','music genre','verb','liquid','transparent','tree part','sodium'],
     ['metal','rock','wood','sap','water','vodka','oxygen'],
     [[1,2,3],[1,2],[2,4,5],[4,5,6],[5,6,7],[3,4],[1]]
+  ),
+  new Puzzle(
+    ["alphabetic homophone",'might begin a question','wherefore','form of the verb \'is\''],
+    ["see","be","are","why"],
+    [[1,2,3,4],[3,4],[4],[2,3]]
   ),
   new Puzzle( //weds
     ['divides by 2','divides by 3','divides by 5','factor of 10','factor of 20','factor of 35'],
