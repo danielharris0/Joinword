@@ -55,7 +55,7 @@ class SceneManager {
             AddElementAsChild(menu, "span", {'class': 'stat-block prevent-select orange fontSizeSmall'}).innerHTML = numAttempts;
             if (numAttempts>0) {
                 AddElementAsChild(menu, "span", {'class': 'progressNotifier in fontSizeSmall'}).innerHTML = 'attempts';
-                AddElementAsChild(menu, "span", {'class': 'stat-block prevent-select orange fontSizeSmall'}).innerHTML = '+' + (numAttempts*10).toString() + 's';
+                AddElementAsChild(menu, "span", {'class': 'stat-block prevent-select orange fontSizeSmall'}).innerHTML = '+' + (numAttempts*20).toString() + 's';
                 AddElementAsChild(menu, "span", {'class': 'progressNotifier in'}).innerHTML = ')';
             } else {
                 AddElementAsChild(menu, "span", {'class': 'progressNotifier in fontSizeSmall'}).innerHTML = 'attempts)';

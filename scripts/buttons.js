@@ -7,7 +7,7 @@ function PauseButtonPressed() {
 }
 
 function ShareButtonPressed() {
-  let shareText = "🧠 I solved today's Joinword in ⌛" + Timer.GetString() + "⌛\ndanielharris0.github.io/Joinword"
+  let shareText = "I solved today's Joinword in ⌛" + Timer.GetString() + "⌛\ndanielharris0.github.io/Joinword"
 
   try {
     navigator.share({'text': shareText})
@@ -50,9 +50,9 @@ function CheckButtonPressed() {
     //Increment num attempts
     SetCookie('daily_numAttempts',parseInt(GetCookie('daily_numAttempts'))+1);
 
-    //+10s to the timer
+    //+20s to the timer
     const para = document.createElement("p");
-    para.innerText = "+10s";
+    para.innerText = "+20s";
     document.body.appendChild(para);
     para.classList.add('floatingNum');
 
@@ -69,7 +69,7 @@ function CheckButtonPressed() {
     para.animate([{transform: `translate(${xShift(0.6)}px, ${-20}px)`, opacity: 0}], {duration: 1000,iterations: 1}).addEventListener('finish', () => {para.remove();});
     timerElement.animate([{color: "red"},{color: "red"}, {color:"black"}], {duration: 500,iterations: 2})
 
-    Timer.AddTime(10 * 1000);
+    Timer.AddTime(20 * 1000);
     
 
 
