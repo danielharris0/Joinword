@@ -36,18 +36,16 @@ const PUZZLES = [
     [[1,2,3,4],[3,4],[4],[2,3]]
   ),
 
-  new Puzzle(
+  new Puzzle( //fri
+    ["titular carnivores", "big bucks", "stags", "you want to be in...", "best-sellers", "holy texts"],
+    ["[redacted], in a way", "large male deer", "cats of the west end", "the money", "the good books", "wolves of wall street"],
+    [[3,6],[2,4],[2],[4,5],[5,6],[1,5]]
+  ),
+
+  new Puzzle( //sat
     ['out of', 'the sun', 'pop', 'earth', 'baking', 'before ?'],
     ['this world', 'too hot', 'the question', 'celestial object', 'soda', 'depleted'],
     [[1,6],[2,4],[3,5],[1,4],[2,5],[3]]
   ),
 
-  new Puzzle( //test
-    ['department', 'division', 'region', 'kingdom', 'bring', 'take to',  'fantasy', 'allusion'],
-    ['section', 'part', 'realm', 'land', 'take', 'fancy', 'illusion','reference'],
-    [[1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8]]
-  ),
-
-
-  
 ];
