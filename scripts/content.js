@@ -48,4 +48,17 @@ const PUZZLES = [
     [[1,6],[2,4],[3,5],[1,4],[2,5],[3]]
   ),
 
+  new Puzzle( //sun
+    ['sometimes comes in a cup', 'sometimes comes in a cone', 'high spirits', 'cracker content', 'playful verb', 'miniature'],
+    ['ice cream', 'joke', 'good cheer', 'party hat', 'toy', 'top shelf liquor'],
+    [[1,3],[1,4],[3,6],[2,4,5],[2,5],[5]]
+  ),
+
+  new Puzzle( //mon
+    ['none of moon visible','1/4 of moon visible','half of moon visible','3/4 of moon visible','empty','working','Netflix branding','low','what a newspaper is, punnily','a suit','garden tool(s)'],
+    ['gibbous','sickle','new','','N','on','moo','sad: feeling...', 'red','businessman','spades'],
+    [[3,4],[2,5],[6],[1,7],[4,8],[6,10],[5,9],[7,8],[3,9],[10,11],[2,11]]
+  ),
+
+
 ];
