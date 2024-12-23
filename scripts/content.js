@@ -49,7 +49,7 @@ const PUZZLES = [
   ),
 
   new Puzzle( //sun
-    ['sometimes comes in a cup', 'sometimes comes in a cone', 'high spirits', 'cracker content', 'playful verb', 'miniature'],
+    ['sometimes comes in a cup', 'sometimes comes in a cone', 'high spirits', 'cracker content', 'playful verb', 'Kennel Club grouping'],
     ['ice cream', 'joke', 'good cheer', 'party hat', 'toy', 'top shelf liquor'],
     [[1,3],[1,4],[3,6],[2,4,5],[2,5],[5]]
   ),
@@ -60,5 +60,15 @@ const PUZZLES = [
     [[3,4],[2,5],[6],[1,7],[4,8],[6,10],[5,9],[7,8],[3,9],[10,11],[2,11]]
   ),
 
+  new Puzzle( //24th
+    ['guise of Zeus','12 Days of Christmas gift','bird','warm blooded','vertebrate','animal','living','verb'],
+    ['oil','plant','fly','snake','bear','duck','dove','swan'],
+    [[8],[7,8],[6,7,8],[5,6,7,8],[4,5,6,7,8],[3,4,5,6,7,8],[2,3,4,5,6,7,8],[1,2,3,4,5,6,7,8]]
+  ),
 
+  new Puzzle( //25th
+    ['reindeer','metal','bridge unit','fox','icy ball','legendary archer','roman god','might fly when having fun','time'],
+    ['vixen','cupid','comet','dancer','mercury','snowball','trick','\"will tell\", you might say','time'],
+    [[1,2,3,4],[5],[7],[1,7],[3,6],[2,8],[2,5],[6,9],[8,9]]
+  ),
 ];
