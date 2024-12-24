@@ -11,6 +11,7 @@ class SceneManager {
         document.querySelector('.content').style.visibility = 'hidden';
 
         lineDrawingActive = !solved;
+        if (!solved) OnLinesChanged(); //In case the saved lines are complete
     }
 
     static Menu() {
@@ -69,6 +70,8 @@ class SceneManager {
             AddElementAsChild(shareButton, "span", {}).innerHTML = 'Share';
             AddElementAsChild(shareButton, "img", {'src':'icons/share.png'});
         } else {
+            document.querySelector(".floatingCircle").classList.remove("active");
+
             document.querySelector("#mainPlayButton img").setAttribute('src', 'icons/play.png');
 
             if (timer > 0) {

@@ -71,4 +71,14 @@ const PUZZLES = [
     ['vixen','cupid','comet','dancer','mercury','snowball','trick','\"will tell\", you might say','time'],
     [[1,2,3,4],[5],[7],[1,7],[3,6],[2,8],[2,5],[6,9],[8,9]]
   ),
+  new Puzzle( //26th
+    ['peri','smart','micro','tele','psycho','para','photo','tria','penta'],
+    ['ssic','gon','phone','scope','path','graph','logy','n','thlon'],
+    [[4],[3],[3,8],[3,4,5,6],[5,7],[2,6],[6,8],[1,9],[2,9]]
+  ),
+  new Puzzle( //27th
+    ['sweet','salty','sour','bitter','umami','spicy'],
+    ['sweet chilli','lemonade','mushroom','soy sauce','dark chilli chocolate','salt and vinegar'],
+    [[1,2,5],[4,6],[2,6],[5],[3,4],[1,5]]
+  ),
 ];

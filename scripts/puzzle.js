@@ -10,6 +10,7 @@ class Puzzle {
   }
 
 function SetCurrentPuzzle(puzzleID) {
+    for (let line of lines) RemoveLine(line);
     puzzle = PUZZLES[puzzleID];
     BuildPuzzleSVG(puzzle);
 }

@@ -98,5 +98,5 @@ def BuildLinear(a):
                 break
 
 
-#BuildLinear(Word('comet'))
-Join_Words_And_Print_Path('snowball','cupid')
+BuildLinear(Word('comet'))
+#Join_Words_And_Print_Path('snowball','cupid')

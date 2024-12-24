@@ -20,7 +20,6 @@
 SetCurrentPuzzle(GetDailyPuzzleNum());
 
 ReadCookiesAndCompareToCurrentDay();
-LoadLinesFromCookies();
 Timer.SetTime(parseInt(GetCookie('daily_timer', '0')));
 
 SceneManager.Menu();
@@ -45,6 +44,8 @@ function ReadCookiesAndCompareToCurrentDay() {
         SetCookie('daily_isSolved', false);
         SetCookie('daily_numAttempts',0);
         SetCookie('daily_lines',JSON.stringify([]));
+    } else {
+        LoadLinesFromCookies();
     }
 
     console.log('daily_timer: ', GetCookie('daily_timer'));

@@ -1,6 +1,7 @@
 function LoadLinesFromCookies() {
   let connections = JSON.parse(GetCookie('daily_lines'));
   console.log(connections);
+  lines = []
   for (let connection of connections) {
     var [xa,ya] = GetDotPosition(0, connection[0]);
     var [xb,yb] = GetDotPosition(1, connection[1]);
@@ -10,6 +11,10 @@ function LoadLinesFromCookies() {
 }
 
 function OnLinesChanged() {
+    for (let line of lines) {
+      if (line.ends[0] >= puzzle.N || line.ends[1]>=puzzle.N) RemoveLine(line);
+    }
+
     let floatingCircle = document.querySelector(".floatingCircle");
     if (lines.length == puzzle.N) {
         floatingCircle.setAttribute('onmousedown','CheckButtonPressed()');
@@ -20,8 +25,7 @@ function OnLinesChanged() {
         floatingCircle.classList.add("active");
     } else {
       floatingCircle.classList.remove("active");
-    }
-    
+    }  
     
     //Save lines to cookies
     let connections = [];
@@ -46,7 +50,7 @@ function NewDraggingLine(xIndex, yIndex) {
 }
 
 function RemoveLine(line) {
-  line.element.remove(); //remove the svg line element
+  if (line.element!=null) line.element.remove(); //remove the svg line element
   lines = lines.filter((x) => x!=line); //remove the entry from the list of lines
   OnLinesChanged();
 }
