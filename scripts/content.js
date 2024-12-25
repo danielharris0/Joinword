@@ -81,4 +81,14 @@ const PUZZLES = [
     ['sweet chilli','lemonade','mushroom','soy sauce','dark chilli chocolate','salt and vinegar'],
     [[1,2,5],[4,6],[2,6],[5],[3,4],[1,5]]
   ),
+  new Puzzle( //28th
+    ['has wings','has wings and no legs','has wings and no arms','has fewer than four legs','has arms and legs','has legs'],
+    ['Buckingham Palace','sofa','Taylor Swift','cat','pigeon','cherub'],
+    [[1,5,6],[1],[1,5],[1,3,5,6],[2,3,6],[2,3,4,5,6]]
+  ),  
+  new Puzzle( //29th
+    ['hazelnut','almond','cherry','chocolate','\"little bitter\" in Italy'],
+    ['amaretto','frangelico','bakewell tart (often)','black forest gateau','nutella'],
+    [[2,5],[1,3],[3,4],[4,5],[1]]
+  ),  
 ];
