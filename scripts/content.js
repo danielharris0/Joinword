@@ -73,7 +73,7 @@ const PUZZLES = [
   ),
   new Puzzle( //26th
     ['peri','smart','micro','tele','psycho','para','photo','tria','penta'],
-    ['ssic','gon','phone','scope','path','graph','logy','n','thlon'],
+    ['ssic','gon','phone','scope','path','graph','sis','n','thlon'],
     [[4],[3],[3,8],[3,4,5,6],[5,7],[2,6],[6,8],[1,9],[2,9]]
   ),
   new Puzzle( //27th
