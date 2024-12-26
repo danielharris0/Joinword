@@ -7,7 +7,7 @@ function PauseButtonPressed() {
 }
 
 function ShareButtonPressed() {
-  let shareText = "I solved today's Joinword in ⌛" + Timer.GetString() + "⌛\ndanielharris0.github.io/Joinword"
+  let shareText = "I solved today's joinword.com in ⌛" + Timer.GetString() + "⌛";
 
   try {
     navigator.share({'text': shareText})
