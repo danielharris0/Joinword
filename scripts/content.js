@@ -91,4 +91,19 @@ const PUZZLES = [
     ['amaretto','frangelico','bakewell tart (often)','black forest gateau','nutella'],
     [[2,5],[1,3],[3,4],[4,5],[1]]
   ),  
+  new Puzzle( //30th
+    ['racquet','net','triangle','ball','bat','table'],
+    ['tennis','badminton','cricket','table tennis','snooker','fishing'],
+    [[1,2],[1,2,4,6],[5],[1,3,4,5],[3,4],[4,5]]
+  ),  
+  new Puzzle( //31st
+    ['square','Adele album','spelled with an \'e\'','odd','(x+1)*(x-1) gives x*x - 1'],
+    ['2025','2000','25','20','5'],
+    [[1,3],[3],[1,3,4,5],[1,3,5],[1,2,3,4,5]]
+  ),  
+  new Puzzle( //1st
+    ['named after a number','stingy with the days (<31)','named after a Roman god','springy','named after a Roman politician', 'initially a chemical symbol','ruby birthstone'],
+    ['January','February','March','April','July','August','December'],
+    [[7],[2,4],[3,1],[3,4],[5,6],[2,6],[5]]
+  ),  
 ];
