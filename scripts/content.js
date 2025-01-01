@@ -106,4 +106,5 @@ const PUZZLES = [
     ['January','February','March','April','July','August','December'],
     [[7],[2,4],[3,1],[3,4],[5,6],[2,6],[5]]
   ),  
+  new Puzzle(['for','inter','pro','con','mini','mon'],['ster','est','itor','mal','ference','duct'],[[2,4],[5,2],[6],[6,5],[4,1],[1,3]]),
 ];
