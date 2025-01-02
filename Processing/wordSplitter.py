@@ -1,66 +1,30 @@
 import copy, random, nltk, wordlist
 
-M = 2 #a suffix must appear at least M times to be counted
+(words, allWords) = wordlist.get(1,12)
+MIN_FREQ = 2 #min frequency of a prefix/suffix to be recorded
+puzzleSize = 11
 
-(words, allWords) = wordlist.get()
-
-file = open('Processing/prefixes.csv','r')
-prefixes = {}
-for line in file.readlines():
-    prefix = line.split('\"')[1]
-    prefixes[prefix] = set()
-#prefixes[''] = set()
-print('Loaded Prefixes')
-
-suffixes = {}
-for word in words:
-    for i in range(len(word)+1):
-        prefix = word[:i]
-        if prefix in prefixes:
-            suffix = word[i:]
-            if suffix in suffixes: suffixes[suffix]+=1
-            else: suffixes[suffix] = 1
-print('Found suffixes')
+prefixes = {} #dictionary of sets
+suffixes = {} #dictionary of sets
 
 for word in words:
-    for i in range(len(word)+1):
+    for i in range(0,len(word)+1):
         prefix = word[:i]
-        if prefix in prefixes:
-            suffix = word[i:]
-            if suffixes[suffix]>=M:
-                prefixes[prefix].add(suffix)
+        suffix = word[i:]
 
-print('Found true suffixes')
+        if not (prefix in prefixes): prefixes[prefix] = set()
+        if not (suffix in suffixes): suffixes[suffix] = set()
 
-suffixes = {}
-for prefix in prefixes:
-    for suffix in prefixes[prefix]:
-        if not(suffix in suffixes): suffixes[suffix] = set()
+        prefixes[prefix].add(suffix)
         suffixes[suffix].add(prefix)
-print('Indexed suffixes')
 
-#Remove under a certain length
-minLength = 3
-for prefix in prefixes: 
-    if len(prefix)<minLength: prefixes[prefix] = None
-for suffix in suffixes: 
-    if len(suffix)<minLength: suffixes[suffix] = None
+# Remove uncommon prefixes / suffixes
+prefixes = {k: v for k, v in prefixes.items() if len(v)>=MIN_FREQ}        
+suffixes = {k: v for k, v in suffixes.items() if len(v)>=MIN_FREQ}
+for prefix in prefixes: prefixes[prefix] = {suffix for suffix in prefixes[prefix] if suffix in suffixes}
+for suffix in suffixes: suffixes[suffix] = {prefix for prefix in suffixes[suffix] if prefix in prefixes}
 
-for i in range(10):
-
-    for prefix in prefixes:
-        if prefixes[prefix]!=None and len(prefixes[prefix])<M:
-            prefixes[prefix] = None
-            for suffix in suffixes:
-                if suffixes[suffix]!=None and prefix in suffixes[suffix]: suffixes[suffix].remove(prefix)
-
-    for suffix in suffixes:
-        if suffixes[suffix]!=None and len(suffixes[suffix])<M:
-            suffixes[suffix] = None
-            for prefix in prefixes:
-                if prefixes[prefix]!=None and suffix in prefixes[prefix]:
-                    prefixes[prefix].remove(suffix)
-
+print("Split words")
 
 def growChain(inputChain, limit = 10):
     if (len(inputChain)==0):
@@ -107,15 +71,25 @@ def growChain(inputChain, limit = 10):
                     if success: return (True, newChain + [suffix])
         return (False, None)
     
-def generatePuzzleListingFromChain(chain):
+def generatePuzzleListingFromChain(chain, a=None, b=None):
+    print('\n')
     print(chain)
 
-    l = int(len(chain)/2)
-    a = list(range(l))
-    b = list(range(l))
+    print()
+    for i in range(0,len(chain),2):
+        if i>0: print(chain[i] + chain[i-1], end="  ")
+        print(chain[i] + chain[i+1], end="  ")
+    print()
 
-    random.shuffle(a)
-    random.shuffle(b)
+    l = int(len(chain)/2)
+
+    if a==None:
+        a = list(range(l))
+        random.shuffle(a)
+
+    if b==None:
+        b = list(range(l))
+        random.shuffle(b)
 
     permutation = [None]*len(chain) #Converts 'chain index' to 'puzzle index' 
 
@@ -124,7 +98,6 @@ def generatePuzzleListingFromChain(chain):
             permutation[i] = a[int(i/2)]
         else:
             permutation[i] = b[int((i-1)/2)]
-
 
     reversePermutation_Prefix = [None]*l #Converts 'puzzle index' of a prefix back to its 'chain index'
     for i in range(l):
@@ -150,7 +123,8 @@ def generatePuzzleListingFromChain(chain):
     print()
     input(s)
 
-puzzleSize = 6
+#generatePuzzleListingFromChain([])
+
 chainLength = puzzleSize * 2
 while True:
     (result, c) = growChain([],chainLength)

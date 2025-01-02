@@ -107,4 +107,35 @@ const PUZZLES = [
     [[7],[2,4],[3,1],[3,4],[5,6],[2,6],[5]]
   ),  
   new Puzzle(['for','inter','pro','con','mini','mon'],['ster','est','itor','mal','ference','duct'],[[2,4],[5,2],[6],[6,5],[4,1],[1,3]]),
+  new Puzzle(['dashing','(nearly) a "tree [...] in the wood"','calm','apparatus to deliver fluids','bright','_ night'],['cup','all is _','silent','IV','smart','holy'],[[5],[6,4],[2,3],[4,1],[5,2],[3,6]]),
+  new Puzzle(['back','con','pro','super','enter','mer','sur','inter'],['gress','ior','ing','taining','face','ground','vision','ely'],[[3,6],[1,4],[7,1],[2,7],[4,3],[8],[8,5],[5,2]]),
+  new Puzzle(
+    ['doctors','cooks','navigational aid','possible Wordle word','titanic','X-?','men in caps', 'found in capitals','capsized vessel, in a way'],
+    ['MEN','VESSEL','GPS','FOUND','large','a spilled glass','falsifies','landmarks','peaky blinders'],
+    [[3,7],[7],[3,8],[4,5],[2,5],[1],[1,9],[4,8],[2,6]]
+  ),
+  new Puzzle(['super','inter','under','com','back','dis','pro','con'],['crete','vision','pute','ing','standing','ference','ior','ground'],[[2,7],[7,6],[8,5],[3,4],[4,8],[1,3],[2],[6,1]]),
+  new Puzzle(
+    ['_ times','square','dull','tables','fade','highlights'],
+    ['times _','best of','worst of','dim','boring','hairstyle'],
+    [[2,3],[1,5],[4,5],[1],[4,6],[2,6]]
+  ),
+
+  //8th:
+  new Puzzle(['trans','fore','for','mini','des','uni','anti','inter'],['mal','stry','ign','section','cription','est','que','form'],[[8,5],[3,2],[1,6],[2,1],[5,3],[7,8],[7],[6,4]]),
+
+  new Puzzle(['wh','u','an','si','mi'],['o','d','p','x','y'],[[5,1],[3],[2,5],[3,4],[4,2]]),
+  new Puzzle(['ja','pl','ed','tr','kn','fo','bu','lo','no','ti','ma'],['va','se','it','zz','ee','rk','er','ay','lk','ny','an'],[[1,4],[8,11],[3],[5,8],[3,5],[9,6],[4,9],[11,2],[2,1],[10,7],[6,10]]),
+  new Puzzle(['mo','mer','fi','glo','tri','yo','ca','wo'],['ung','be','sh','rst','ry','uth','ge','od'],[[8,6],[5,7],[3,4],[2,5],[2],[6,1],[7,3],[4,8]]),
+  new Puzzle(['ex','cre','pa','fin','au','stu','rea','par'],['der','dio','ish','sta','dy','cel','tent','dit'],[[6,7],[8],[7,4],[1,3],[8,2],[2,5],[5,1],[3,6]]),
+  new Puzzle(['bu','vi','co','he','ma','ca','we','re'],['rgin','alth','rner','ndle','ader','ture','medy','sual'],[[3,4],[8,1],[7,3],[2,5],[1,6],[4,8],[2],[5,7]]),
+  new Puzzle(['wal','out','le','be','d','trac','r','visi'],['ental','side','ker','tor','ather','let','ouble','tter'],[[3,6],[6,2],[8,5],[2,8],[1,7],[4,3],[5,1],[4]]),
+  new Puzzle(['pas','opti','regi','poss','vis','proc','deci','mon'],['sage','ess','itor','ible','onal','mal','sion','ster'],[[7,1],[5,6],[8,5],[2,4],[4,3],[2],[6,7],[3,8]]),
+  new Puzzle(['res','pro','con','inc','dis'],['gress','crete','ident','rease','trict'],[[5,3],[1],[1,2],[3,4],[2,5]]),
+  new Puzzle(['proper','indu','identi','physic','chemi','possib','sele','princip'],['cal','le','ction','ly','ian','al','ty','stry'],[[7,4],[3,8],[1,7],[6,5],[8,1],[4,2],[3],[2,6]]),
+  new Puzzle(['structur','reasonabl','correct','automat','princip','geograph','special','difficul'],['ion','y','e','ty','al','t','ly','ic'],[[5,3],[3,2],[1,7],[8,1],[5],[2,8],[7,4],[4,6]]),
+  new Puzzle(['accept','comple','adjust','attrac'],['able','tion','ance','ment'],[[1,3],[2,4],[4,1],[2]]),
+  new Puzzle(['corre','attr','compar','innov','adjust','instru','trans'],['ative','active','ction','lation','action','ment','able'],[[3,4],[5,2],[1,7],[1],[7,6],[6,3],[4,5]]),
+  new Puzzle(['pro','dis','tra','con'],['position','spective','ditional','tribution'],[[1,2],[4,1],[3],[3,4]]),
+  new Puzzle(['absen','voi','equa','flu','chroni','publi','parti','che','sal','gol','exce'],['cle','l','tion','ce','d','sh','c','f','t','ss','id'],[[9,4],[4,5],[2,3],[6,11],[1,7],[7,6],[3,1],[8,10],[9],[5,8],[10,2]]),
 ];
