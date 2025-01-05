@@ -1,3 +1,6 @@
+#TODO: parameters to control length of prefix / suffix; modularise the prefix-suffix gen s.t. e.g. I could use a set of number-facts as prefixes with linked numbers as suffixes; or car/animal stats etc. etc.
+#TODO: create a module to take a set of L / R and their linkings, and produce a valid puzzle (not neccesarily chain form) - also print the joins used, 'cause it's hard to police manually
+
 import copy, random, nltk, wordlist
 
 (words, allWords) = wordlist.get(1,12)
@@ -70,6 +73,48 @@ def growChain(inputChain, limit = 10):
                     success, newChain = growChain(chain + [suffix], limit)
                     if success: return (True, newChain + [suffix])
         return (False, None)
+    
+def isDisordered(perm):
+    for i in range(len(perm)):
+        if perm[i]==i: return False
+    return True
+    
+def applyPermutationToPuzzle(left, right, answers):
+    l = len(left)
+    a = list(range(l))  #left[a[i]] goes in the ith position in the final puzzle listing
+    while (not isDisordered(a)): random.shuffle(a)
+
+    b = list(range(l))  #right[b[i]] goes in the ith position in the final puzzle listing
+    while (not isDisordered(b)): random.shuffle(b)
+
+    s = "new Puzzle(["
+    for i in range(l): s+='\''+left[a[i]]+'\''+','
+    s=s[:-1]+'],['
+    for i in range(l): s+='\''+right[b[i]]+'\''+','
+    s=s[:-1]+'],['
+    for i in range(l):
+        s += '['
+        leftIndex = a[i]
+        
+        for j in answers[leftIndex]:
+            puzzleIndexRight = None
+            for k in range(l):
+                if b[k]==j: puzzleIndexRight = k
+            s += str(puzzleIndexRight+1) + ','
+        s = s[:-1]
+        s+='],'
+
+    s=s[:-1]+']),'
+
+    print()
+    input(s) 
+
+def applyPermutationToRusianDoll(left, right):
+    answers = [[j for j in range(i,len(left))] for i in range(len(left))]
+    print(answers)
+    applyPermutationToPuzzle(left, right, answers)
+
+applyPermutationToRusianDoll([])
     
 def generatePuzzleListingFromChain(chain, a=None, b=None):
     print('\n')
