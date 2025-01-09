@@ -121,7 +121,7 @@ const PUZZLES = [
     [[2,3],[1,5],[4,5],[1],[4,6],[2,6]]
   ),
   new Puzzle(['trans','fore','for','mini','des','uni','anti','inter'],['mal','stry','ign','section','cription','est','que','form'],[[8,5],[3,2],[1,6],[2,1],[5,3],[7,8],[7],[6,4]]),
-  new Puzzle(['white','undistilled','grape-based','liquid','sweet','alcoholic','edible'],['merlot','tequila','lager','chardonnay','bread',' late harvest riesling','water'],[[4,6],[3,1,4,6],[1,4,6],[7,2,3,1,4,6],[6],[2,3,1,4,6],[5,7,2,3,1,4,6]]),
+  new Puzzle(['white wine','undistilled','grape-based','liquid','sweet','alcoholic','edible'],['merlot','tequila','lager','chardonnay','bread',' late harvest riesling','water'],[[4,6],[3,1,4,6],[1,4,6],[7,2,3,1,4,6],[6],[2,3,1,4,6],[5,7,2,3,1,4,6]]),
   new Puzzle(['wh','u','an','si','mi'],['o','d','p','x','y'],[[5,1],[3],[2,5],[3,4],[4,2]]),
   new Puzzle(
     ['instrument','analogue','aerophone','pipe-based','brass','with valves'],
