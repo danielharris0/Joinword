@@ -133,6 +133,10 @@ const PUZZLES = [
   new Puzzle(['proper','indu','identi','physic','chemi','possib','sele','princip'],['cal','le','ction','ly','ian','al','ty','stry'],[[7,4],[3,8],[1,7],[6,5],[8,1],[4,2],[3],[2,6]]),
   new Puzzle(['mo','mer','fi','glo','tri','yo','ca','wo'],['ung','be','sh','rst','ry','uth','ge','od'],[[8,6],[5,7],[3,4],[2,5],[2],[6,1],[7,3],[4,8]]),
   new Puzzle(['structur','reasonabl','correct','automat','princip','geograph','special','difficul'],['ion','y','e','ty','al','t','ly','ic'],[[5,3],[3,2],[1,7],[8,1],[5],[2,8],[7,4],[4,6]]),
+  
+  new Puzzle(['past','show','walk','present','rise','done'],['prove','a tense word','display','over','audibly a colour','hike'],[[2,4],[1,3],[6],[3,2],[6,1],[4,5]]),
+  new Puzzle(['berry','vegetable','herb','adverb, outspoken','adjective, aloud','verb, heard'],['leek','chard','thyme','currant','yarrow','sloe'],[[6,4],[2,1],[3,5],[6],[4,2],[1,3]]),
+
   new Puzzle(['ex','cre','pa','fin','au','stu','rea','par'],['der','dio','ish','sta','dy','cel','tent','dit'],[[6,7],[8],[7,4],[1,3],[8,2],[2,5],[5,1],[3,6]]),
   new Puzzle(['accept','comple','adjust','attrac'],['able','tion','ance','ment'],[[1,3],[2,4],[4,1],[2]]),
   new Puzzle(['bu','vi','co','he','ma','ca','we','re'],['rgin','alth','rner','ndle','ader','ture','medy','sual'],[[3,4],[8,1],[7,3],[2,5],[1,6],[4,8],[2],[5,7]]),

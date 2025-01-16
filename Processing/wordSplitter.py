@@ -113,8 +113,6 @@ def applyPermutationToRusianDoll(left, right):
     answers = [[j for j in range(i,len(left))] for i in range(len(left))]
     print(answers)
     applyPermutationToPuzzle(left, right, answers)
-
-applyPermutationToRusianDoll([])
     
 def generatePuzzleListingFromChain(chain, a=None, b=None):
     print('\n')
@@ -125,6 +123,8 @@ def generatePuzzleListingFromChain(chain, a=None, b=None):
         if i>0: print(chain[i] + chain[i-1], end="  ")
         print(chain[i] + chain[i+1], end="  ")
     print()
+
+    print(a)
 
     l = int(len(chain)/2)
 
@@ -143,6 +143,8 @@ def generatePuzzleListingFromChain(chain, a=None, b=None):
             permutation[i] = a[int(i/2)]
         else:
             permutation[i] = b[int((i-1)/2)]
+
+    print(permutation)
 
     reversePermutation_Prefix = [None]*l #Converts 'puzzle index' of a prefix back to its 'chain index'
     for i in range(l):
@@ -168,9 +170,10 @@ def generatePuzzleListingFromChain(chain, a=None, b=None):
     print()
     input(s)
 
+#applyPermutationToRusianDoll([],[])
 #generatePuzzleListingFromChain([])
 
-chainLength = puzzleSize * 2
-while True:
-    (result, c) = growChain([],chainLength)
-    generatePuzzleListingFromChain(c[:chainLength])
+#chainLength = puzzleSize * 2
+#while True:
+#    (result, c) = growChain([],chainLength)
+#    generatePuzzleListingFromChain(c[:chainLength])
