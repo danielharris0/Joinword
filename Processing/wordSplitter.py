@@ -79,13 +79,29 @@ def isDisordered(perm):
         if perm[i]==i: return False
     return True
     
-def applyPermutationToPuzzle(left, right, answers):
+def applyPermutationToPuzzle(left, right, answers, a = None, b = None):
+    #answers is a list matching left indices to right indices -- answers[i] gives a list of the indices of the items in 'right' to which the ith item of 'left' can be linked
     l = len(left)
-    a = list(range(l))  #left[a[i]] goes in the ith position in the final puzzle listing
-    while (not isDisordered(a)): random.shuffle(a)
 
-    b = list(range(l))  #right[b[i]] goes in the ith position in the final puzzle listing
-    while (not isDisordered(b)): random.shuffle(b)
+    def badShuffleL(a):
+        if a[0]==0: return True #don't want the 'end' of the chain to be the first node you see
+        return False
+    
+    def badShuffleR(a,b):
+        if b[0]==len(right)-1: return True #don't want the 'end' of the chain to be the first node you see
+        for i in range(l):
+            pairL = a[i]
+            pairR = b[i]
+            if pairL==pairR: return True #don't want the 'actual' answer to be so obvious
+        return False
+
+    if a==None:
+        a = list(range(l))  #left[a[i]] goes in the ith position in the final puzzle listing; a[i] gives the index in 'left' of the ith position in the final puzzle listing
+        while (badShuffleL(a)): random.shuffle(a)
+
+    if b==None:
+        b = list(range(l))  #right[b[i]] goes in the ith position in the final puzzle listing; b[i] gives the index in 'right' of the ith position in the final puzzle listing
+        while (badShuffleR(a,b)): random.shuffle(b)
 
     s = "new Puzzle(["
     for i in range(l): s+='\''+left[a[i]]+'\''+','
@@ -171,7 +187,7 @@ def generatePuzzleListingFromChain(chain, a=None, b=None):
     input(s)
 
 #applyPermutationToRusianDoll([],[])
-#generatePuzzleListingFromChain([])
+#generatePuzzleListingFromChain(['0','1','2','3','4','5','6','7','8','9'], [2,1,0,3,4])
 
 #chainLength = puzzleSize * 2
 #while True:

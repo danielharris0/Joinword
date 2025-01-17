@@ -136,10 +136,13 @@ const PUZZLES = [
   
   new Puzzle(['past','show','walk','present','rise','done'],['prove','a tense word','display','over','audibly a colour','hike'],[[2,4],[1,3],[6],[3,2],[6,1],[4,5]]),
   new Puzzle(['berry','vegetable','herb','adverb, outspoken','adjective, aloud','verb, heard'],['leek','chard','thyme','currant','yarrow','sloe'],[[6,4],[2,1],[3,5],[6],[4,2],[1,3]]),
-
+  
   new Puzzle(['ex','cre','pa','fin','au','stu','rea','par'],['der','dio','ish','sta','dy','cel','tent','dit'],[[6,7],[8],[7,4],[1,3],[8,2],[2,5],[5,1],[3,6]]),
+  new Puzzle(['bear','baby','save','plunder','vine','block-buster','hit','bowling term'],['creeper','TikTok precursor','best-seller','strike','spoil','deliver','spare','sometimes grizzly'],[[8,6],[5,8],[6,7],[5],[1,2],[3,1],[4,3],[7,4]]),       
   new Puzzle(['accept','comple','adjust','attrac'],['able','tion','ance','ment'],[[1,3],[2,4],[4,1],[2]]),
+  new Puzzle(['sometimes receding','sometimes in splits','fracture type','fruits','sometimes high','jockeys','sometimes in bunches','sometimes on horses'],['fives','the tide','grapes','bananas','hairline','gymnasts','compound','competes'],[[2,5],[6,4],[5,7],[4,3],[1,2],[8],[3,4,1],[8,6]]),
   new Puzzle(['bu','vi','co','he','ma','ca','we','re'],['rgin','alth','rner','ndle','ader','ture','medy','sual'],[[3,4],[8,1],[7,3],[2,5],[1,6],[4,8],[2],[5,7]]),
+  new Puzzle(['sometimes in a bottle','Annie Oakley','phonetic alphabet letter','relay','send','DM half','lead','wish granter','spirit'],['ship','genie','whiskey','message','echo','transmit','direct','shooting star','PB, but no achievement'],[[1,2,3,4],[8],[3,5],[5,6],[6,1],[4,7],[7,9],[8,2],[2,3]]),
   new Puzzle(['corre','attr','compar','innov','adjust','instru','trans'],['ative','active','ction','lation','action','ment','able'],[[3,4],[5,2],[1,7],[1],[7,6],[6,3],[4,5]]),
   new Puzzle(['wal','out','le','be','d','trac','r','visi'],['ental','side','ker','tor','ather','let','ouble','tter'],[[3,6],[6,2],[8,5],[2,8],[1,7],[4,3],[5,1],[4]]),
   new Puzzle(['pro','dis','tra','con'],['position','spective','ditional','tribution'],[[1,2],[4,1],[3],[3,4]]),
