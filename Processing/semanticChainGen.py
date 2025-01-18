@@ -6,9 +6,25 @@ import wordSplitter, wn, homophoneDict, copy, random, math
 
 # In terms of actual construction though, if we are building the chain left -> right, then the fact of relevance is that LHS (odd) nodes can be connected to any previous RHS (even) node with impunity
 
-#wn.download('ewn:2020')
-#wordnet = wn.Wordnet('ewn:2020')
-#extendedWordnet = wn.Wordnet('ewn:2020', lemmatizer=wn.morphy.Morphy()) #ewn:2020 extended with a lemmatizer s.t. e.g. 'jumped' can be recognised as 'jump'
+
+SO_WHATS_GOING_ON = """"
+    We add from top to bottom, left to right. So chain start is top left; chain end is bottom right.
+    With this chain in mind, we can add any edges we like so long as we maintain the property that the 'chain' is the only valid solution. (Sort of inductive.)
+    Therefore: consider the 'correct' link L <-> R in the chain... (This link is used in the solution)
+        Above them we have L+ <-> R+
+        And below we have L- <-> R-
+        So the chain contains  ... L+ R+ L R L- R- ...
+
+
+
+    When adding on the LEFT:
+        The world is your oyster. Link with anything you like (anything above).
+
+    When adding on the RIGHT:
+        Add ZERO additional links (to anything above).
+
+
+"""
 
 def findSynonyms(word, excludedWords = set(), excludeSynsets = set()):
     synonyms = []
@@ -18,6 +34,13 @@ def findSynonyms(word, excludedWords = set(), excludeSynsets = set()):
                 for lemma in synset.lemmas():
                     lemma = lemma.lower()
                     if not (lemma in synonyms) and not (lemma in excludedWords) and lemma!=word: synonyms.append(lemma)
+
+                #'Related' words
+                for relatedSynset in synset.get_related():
+                    for lemma in relatedSynset.lemmas():
+                        lemma = lemma.lower()
+                        if not (lemma in synonyms) and not (lemma in excludedWords) and lemma!=word: synonyms.append(lemma)                       
+
     return synonyms
 
 def findPossibleContinuations(word, excludedWords, excludeSynsets): #Only doing synonyms for now
@@ -180,6 +203,14 @@ def generate(seedWord):
     while result==None: result = extend([seedWord], [[]], set([seedWord]))
     return result
 
+def escapeQuotes(s):
+    i=0
+    while i<len(s):
+        if s[i]=='\'' and (i==0 or s[i-1]!='\\'):
+            s = s[:i] + '\\' + s[i:]
+        i+=1
+    return s
+
 while True:
     seedWord = input('- ')
     (chain, links) = generate(seedWord)
@@ -190,10 +221,10 @@ while True:
     answers = []
     for i in range(len(chain)):
         if i%2==0:
-            left.append(chain[i])
+            left.append(escapeQuotes(chain[i]))
             answers.append([])
             for link in links[i]: answers[-1].append(int((link-1)/2))
-        else: right.append(chain[i])
+        else: right.append(escapeQuotes(chain[i]))
 
     if input('Specify order? ')=='y':
         while True:
