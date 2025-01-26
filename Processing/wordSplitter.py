@@ -1,79 +1,5 @@
-#TODO: parameters to control length of prefix / suffix; modularise the prefix-suffix gen s.t. e.g. I could use a set of number-facts as prefixes with linked numbers as suffixes; or car/animal stats etc. etc.
-#TODO: create a module to take a set of L / R and their linkings, and produce a valid puzzle (not neccesarily chain form) - also print the joins used, 'cause it's hard to police manually
+import random
 
-import copy, random, nltk, wordlist
-
-(words, allWords) = wordlist.get(1,12)
-MIN_FREQ = 2 #min frequency of a prefix/suffix to be recorded
-puzzleSize = 11
-
-prefixes = {} #dictionary of sets
-suffixes = {} #dictionary of sets
-
-for word in words:
-    for i in range(0,len(word)+1):
-        prefix = word[:i]
-        suffix = word[i:]
-
-        if not (prefix in prefixes): prefixes[prefix] = set()
-        if not (suffix in suffixes): suffixes[suffix] = set()
-
-        prefixes[prefix].add(suffix)
-        suffixes[suffix].add(prefix)
-
-# Remove uncommon prefixes / suffixes
-prefixes = {k: v for k, v in prefixes.items() if len(v)>=MIN_FREQ}        
-suffixes = {k: v for k, v in suffixes.items() if len(v)>=MIN_FREQ}
-for prefix in prefixes: prefixes[prefix] = {suffix for suffix in prefixes[prefix] if suffix in suffixes}
-for suffix in suffixes: suffixes[suffix] = {prefix for prefix in suffixes[suffix] if prefix in prefixes}
-
-print("Split words")
-
-def growChain(inputChain, limit = 10):
-    if (len(inputChain)==0):
-        while True:
-            prefix = random.choice(list(prefixes))
-            if prefixes[prefix]!=None:
-                success, newChain = growChain([prefix], limit)
-                if success: return (True, newChain)
-
-    if (len(inputChain)>=limit):
-        return (True, inputChain)
-    
-    chain = copy.copy(inputChain)
-
-    if len(chain)%2==0:
-        #Find a prefix that links to the previous suffix and not to any others
-        l = list(suffixes[chain[-1]])
-        random.shuffle(l)
-        for prefix in l:
-            if prefixes[prefix]!=None and not (prefix in chain):
-                valid = True
-                for i in range(1, len(chain)-2, 2):
-                    if prefix+chain[i] in allWords:
-                        valid = False
-                        break
-                if valid:
-                    success, newChain = growChain(chain + [prefix], limit)
-                    if success: return (True, newChain + [prefix])
-        return (False, None)
-
-    else:
-        #Find a suffix that links to the previuous prefix and not to any others
-        l = list(prefixes[chain[-1]])
-        random.shuffle(l)
-        for suffix in l:
-            if suffixes[suffix]!=None and not (suffix in chain):
-                valid = True
-                for i in range(0, len(chain)-2, 2):
-                    if chain[i]+suffix in allWords:
-                        valid = False
-                        break
-                if valid:
-                    success, newChain = growChain(chain + [suffix], limit)
-                    if success: return (True, newChain + [suffix])
-        return (False, None)
-    
 def isDisordered(perm):
     for i in range(len(perm)):
         if perm[i]==i: return False
@@ -122,8 +48,9 @@ def applyPermutationToPuzzle(left, right, answers, a = None, b = None):
 
     s=s[:-1]+']),'
 
-    print()
-    input(s) 
+    #print()
+    #print(s) 
+    return (s,a,b)
 
 def applyPermutationToRusianDoll(left, right):
     answers = [[j for j in range(i,len(left))] for i in range(len(left))]
@@ -183,7 +110,6 @@ def generatePuzzleListingFromChain(chain, a=None, b=None):
         else: s += '[' + str(permutation[chainIndex-1]+1) + ',' + str(permutation[chainIndex+1]+1) + '],'
     s=s[:-1]+']),'
 
-    print()
     input(s)
 
 #applyPermutationToRusianDoll([],[])

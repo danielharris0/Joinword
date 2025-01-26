@@ -1,0 +1,2 @@
+Spellings generated using generatePuzzleListingFromChain in wordSplitter.py
+Semantic generated using semanticChainGen.py

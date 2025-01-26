@@ -226,28 +226,29 @@ while True:
             for link in links[i]: answers[-1].append(int((link-1)/2))
         else: right.append(escapeQuotes(chain[i]))
 
-    if input('Specify order? ')=='y':
-        while True:
-            printChain(chain, links)
-            a = []
-            for i in range(len(left)): a.append(int(input('LEFT: What should go in position ' + str(i+1) + '? ')) - 1)
+    a = None; b = None
+    while True:
+        (s,a,b) = wordSplitter.applyPermutationToPuzzle(left, right, answers, a, b)
+        print(s)
+        print('Order:')
+        for i in range(len(a)):
+            l = left[a[i]]; r = right[b[i]]
+            print(str(i) + ': ' + l + ' '*(30-len(l)) + r)
 
-            printChain(chain, links)
-            b = []
-            for i in range(len(left)): b.append(int(input('RIGHT: What should go in position ' + str(i+1) + '? ')) - 1)
-
-            try:
-                wordSplitter.applyPermutationToPuzzle(left, right, answers, a, b)
-            except:
-                print('Bad format')
-                pass
-    else:
-        while True:
-            wordSplitter.applyPermutationToPuzzle(left, right, answers)
-
-
-    plan = """"
-
-
-
-    """
+        response = input('To swap e.g. nodes 2 & 4 on the left, enter: L 2 4\n>')
+        try:
+            response = response.lower().split(' ')
+            assert(len(response)==3)
+            assert(response[0] in ['l','r'])
+            n1 = int(response[1]); n2 = int(response[2])
+            assert(n1 in range(0,len(a))); assert(n2 in range(0, len(b)))
+            if response[0]=='l':
+                temp = a[n1]
+                a[n1] = a[n2]
+                a[n2] = temp
+            else:
+                temp = b[n1]
+                b[n1] = b[n2]
+                b[n2] = temp
+        except:
+            pass
