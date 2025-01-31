@@ -150,12 +150,4 @@ const PUZZLES = [
   new Puzzle(['pro','dis','tra','con'],['position','spective','ditional','tribution'],[[1,2],[4,1],[3],[3,4]]),
   new Puzzle(['fox','hare','bleed','cards terminology','famous Donald','avoid'],['trump','duck','trick','possibly arctic','forefend','run'],[[4,3],[6,4],[6],[3,6,1],[1,2],[2,5]]),
   new Puzzle(['pas','opti','regi','poss','vis','proc','deci','mon'],['sage','ess','itor','ible','onal','mal','sion','ster'],[[7,1],[5,6],[8,5],[2,4],[4,3],[2],[6,7],[3,8]]),
-
-  new Puzzle(['absen','voi','equa','flu','chroni','publi','parti','che','sal','gol','exce'],['cle','l','tion','ce','d','sh','c','f','t','ss','id'],[[9,4],[4,5],[2,3],[6,11],[1,7],[7,6],[3,1],[8,10],[9],[5,8],[10,2]]),
-
-  new Puzzle(['colour','grass','yarn','instrument type','neophyte','impact','read aloud'],['red','green','string','reed','meme font','affect','tell a story'],[[1,2,6],[2,4],[3,7],[4,3],[2],[6,5],[7,4,1]]),
-  new Puzzle(['possibly paper','brain rhyme','apparatus for getting high','shadow','animal','Tony, e.g.'],['tiger','crane','chain','trail','plane','penumbra'],[[3,1,2,5,4],[5,2,3],[2,5],[4,6],[1,2],[1]]),
-  new Puzzle(['controlling','greeting','signal','initial','coveted time','playing'],['manipulating','sign','card sort','reception','steering','prime'],[[1,5],[4,3],[2,4],[6,2],[6],[3,1]]),
-  new Puzzle(['video','dazzle','iconically Venetian','duct','masking','can be big or small','capture'],['blind','neurodiversity term','canal','masquerading','tape type','record','bewitch'],[[6,5],[1,7],[3,1,4],[5,3],[4,5,2],[1],[7,6]]),
-  new Puzzle(['it','brood','ratatouille','often gambled idiomatically','jaws','pin','the ranch','cars','fork'],['the farm','\'back at _\'','horror film','often dropped idiomatically','chess tactic','often in the road','animated film','stew','a bunch of chicks, say'],[[2,3],[8,9],[7,8],[1],[3,4],[4,5],[1,2],[6,7],[5,6]]),
 ];

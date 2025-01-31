@@ -11,6 +11,15 @@ class Puzzle {
 
 function SetCurrentPuzzle(puzzleID) {
     for (let line of lines) RemoveLine(line);
-    puzzle = PUZZLES[puzzleID];
+    puzzle = GetPuzzleByID(puzzleID);
     BuildPuzzleSVG(puzzle);
+}
+
+function GetPuzzleByID(puzzleID) {
+    if (puzzleID < 50) return PUZZLES[puzzleID];
+    else {
+        puzzleID -= 50;
+        if (puzzleID%2==0) return CONTENT_SEMANTIC[puzzleID/2];
+        else return CONTENT_SPELLING[(puzzleID-1)/2];
+    }
 }

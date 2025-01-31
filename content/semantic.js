@@ -1,0 +1,10 @@
+const CONTENT_SEMANTIC = [
+new Puzzle(['Long-tailed','Jack','Great','Wood','Willow','Red','Hen','Coal'],['tit','snipe','skua','warbler','daw','shank','cock','harrier'],[[1,3],[2,5],[1,2,3],[2,4,7],[1,4],[6],[8],[1]]),
+new Puzzle(['telephone part','positioning','talker','clay','homing','app permission'],['pigeon type','orienting','location','microphone','speaker','interlocutor'],[[4,5],[2,3],[5,6],[1],[1,2],[3,4]]),
+new Puzzle(['tangible','solid','mint','flat','round','metal','small','inedible'],['coin','washer','ball bearing','cannonball','planet','coconut','load of bread','blancmange'],[[7,1,2,3,4,5,6,8],[6,1,2,3,4,5,7],[1],[1,2],[5,1,2,3,4,6],[3,1,2,4],[2,1,3],[4,1,2,3,5]]),
+new Puzzle(['colour','grass','yarn','instrument type','neophyte','impact','read aloud'],['red','green','string','reed','meme font','affect','tell a story'],[[1,2,6],[2,4],[3,7],[4,3],[2],[6,5],[7,4,1]]),
+new Puzzle(['possibly paper','brain rhyme','apparatus for getting high','shadow','animal','Tony, e.g.'],['tiger','crane','chain','trail','plane','penumbra'],[[3,1,2,5,4],[5,2,3],[2,5],[4,6],[1,2],[1]]),
+new Puzzle(['controlling','greeting','signal','initial','coveted time','playing'],['manipulating','sign','card sort','reception','steering','prime'],[[1,5],[4,3],[2,4],[6,2],[6],[3,1]]),
+new Puzzle(['video','dazzle','iconically Venetian','duct','masking','can be big or small','capture'],['blind','neurodiversity term','canal','masquerading','tape type','record','bewitch'],[[6,5],[1,7],[3,1,4],[5,3],[4,5,2],[1],[7,6]]),
+new Puzzle(['it','brood','ratatouille','often gambled idiomatically','jaws','pin','the ranch','cars','fork'],['the farm','\'back at _\'','horror film','often dropped idiomatically','chess tactic','often in the road','animated film','stew','a bunch of chicks, say'],[[2,3],[8,9],[7,8],[1],[3,4],[4,5],[1,2],[6,7],[5,6]]),  
+];
