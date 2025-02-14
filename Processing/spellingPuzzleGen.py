@@ -16,7 +16,6 @@ def suffixGood(word): return len(word) in suffixLengthRange
 prefixes = {} #dictionary of sets
 suffixes = {} #dictionary of sets
 
-
 def precompute():
     global prefixes, suffixes
     for word in words:

@@ -1,10 +1,16 @@
 const CONTENT_SEMANTIC = [
 new Puzzle(['Long-tailed','Jack','Great','Wood','Willow','Red','Hen','Coal'],['tit','snipe','skua','warbler','daw','shank','cock','harrier'],[[1,3],[2,5],[1,2,3],[2,4,7],[1,4],[6],[8],[1]]),
 new Puzzle(['telephone part','positioning','talker','clay','homing','app permission'],['pigeon type','orienting','location','microphone','speaker','interlocutor'],[[4,5],[2,3],[5,6],[1],[1,2],[3,4]]),
-new Puzzle(['tangible','solid','mint','flat','round','metal','small','inedible'],['coin','washer','ball bearing','cannonball','planet','coconut','load of bread','blancmange'],[[7,1,2,3,4,5,6,8],[6,1,2,3,4,5,7],[1],[1,2],[5,1,2,3,4,6],[3,1,2,4],[2,1,3],[4,1,2,3,5]]),
+new Puzzle(['tangible','solid','mint','flat','round','metal','small','inedible'],['coin','washer','ball bearing','cannonball','planet','coconut','loaf of bread','blancmange'],[[7,1,2,3,4,5,6,8],[6,1,2,3,4,5,7],[1],[1,2],[5,1,2,3,4,6],[3,1,2,4],[2,1,3],[4,1,2,3,5]]),
 new Puzzle(['colour','grass','yarn','instrument type','neophyte','impact','read aloud'],['red','green','string','reed','meme font','affect','tell a story'],[[1,2,6],[2,4],[3,7],[4,3],[2],[6,5],[7,4,1]]),
 new Puzzle(['possibly paper','brain rhyme','apparatus for getting high','shadow','animal','Tony, e.g.'],['tiger','crane','chain','trail','plane','penumbra'],[[3,1,2,5,4],[5,2,3],[2,5],[4,6],[1,2],[1]]),
 new Puzzle(['controlling','greeting','signal','initial','coveted time','playing'],['manipulating','sign','card sort','reception','steering','prime'],[[1,5],[4,3],[2,4],[6,2],[6],[3,1]]),
 new Puzzle(['video','dazzle','iconically Venetian','duct','masking','can be big or small','capture'],['blind','neurodiversity term','canal','masquerading','tape type','record','bewitch'],[[6,5],[1,7],[3,1,4],[5,3],[4,5,2],[1],[7,6]]),
 new Puzzle(['it','brood','ratatouille','often gambled idiomatically','jaws','pin','the ranch','cars','fork'],['the farm','\'back at _\'','horror film','often dropped idiomatically','chess tactic','often in the road','animated film','stew','a bunch of chicks, say'],[[2,3],[8,9],[7,8],[1],[3,4],[4,5],[1,2],[6,7],[5,6]]),  
+//
+new Puzzle(['numbers','needle','\'funny bone\'','bone','heart','fingers','nerve'],['humerus','digits','rib','sometimes crossed','ulnar nerve','guts','enumerates'],[[2,7],[3],[1,5],[3,1],[6,4],[4,2],[5,6]]),
+new Puzzle(['organ','vanity','density','hole','costumer','device','focus'],['concentration','pore','eye','instrument','conceit','dresser','couturier'],[[3,4],[5,6],[1],[2,3],[6,7],[4,5],[1,2]]),
+new Puzzle(['Nevada','fish type','royal','face card','rock band','Japanese loanword','often in a box','spoken emotion','\" gl hf \" response','aureate'],['bento','NV','queen','koi','gilt','U2','jack','gold','king','state'],[[2,10],[4,8],[3,9],[9,7],[6,3],[1,4],[7,1],[5,2],[6],[8,5]]),
+new Puzzle(['vital','iron deficient?','scary','posh','zombie','revived','figure','sporty','kicking back','fingers after an ice bath'],['spice sort','fancy','wrinkled','monster','bribing','chilling','active','number','undead','animated'],[[7,10],[3],[4,1,9,6],[2,1],[9,4],[10,9],[8,2],[1,7],[6,5],[3,8]]),
+new Puzzle(['bean product','hot beverage','laughing cow','red bull','leaf product','subway sandwich stage','caffeinated','audibly coughy'],['coffee','chocolate','tea','salad','cheese','bovine brand','energy drink','coke'],[[1,2],[2,1,3],[5,6],[6,7],[3,4],[4,5],[7,1,2,3,8],[1]]),
 ];
