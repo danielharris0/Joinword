@@ -1,3 +1,9 @@
+#todo: fix dictionary issue e.g. no 'paw', 'sting', or 'hive'
+
+
+
+
+
 import copy, random, wordlist, wordSplitter
 
 #SETTINGS:
