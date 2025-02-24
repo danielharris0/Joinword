@@ -13,6 +13,11 @@ new Puzzle(['transist','resist','capacit','memrist','process','r','pr'],['or','o
 new Puzzle(['br','gr','ch','dr','ag','st'],['eam','ain','ick','ill','ing','ief'],[[2,3,6,5],[2,4],[2,3,6],[2,4,1],[2],[4,1,3]]),
 new Puzzle(['le','ta','ba','to','ma','ye'],['x','e','g','b','n','r'],[[2,3],[5,3,6,1,4],[5,3,6],[5,2],[5,3,6,1],[5]]),
 new Puzzle(['dea','fou','min','cor','rai','gat'],['e','d','n','l','r','f'],[[2,3,4,5,6],[4,5],[1,2],[1,2,3],[2,3,4],[1]]),
+
+new Puzzle(['thick as __','up with the __','sod this for a __','honour amongst __','what the hell are you __','that lad chatting up girls, he\'s __'],
+    ['playing at','thieves','lark','two short planks','trying to pull','game of soldiers'],
+    [[2,4],[3],[3,6],[2],[1,5],[5]]),
+
 new Puzzle(['pla','gra','ble','bra','gro','bou'],['nd','ss','in','ve','nt','de'],[[3,5],[1,2,4,3,5,6],[1,2],[1,2,4,3],[2,4],[1]]),
 new Puzzle(['d','r','h','y','z','b'],['ear','ero','oom','uck','eef','age'],[[1,3,4],[1,3,5,6],[1,2],[1],[2,3],[1,3,4,5]]),
 new Puzzle(['c','l','w','m','f','h'],['ist','ave','ope','ork','ine','ape'],[[4,2,3,6],[5,1],[5,4,2],[5],[5,1,4],[1,2,3]]),
