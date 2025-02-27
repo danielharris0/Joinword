@@ -16,4 +16,9 @@ new Puzzle(['bean product','hot beverage','laughing cow','red bull','leaf produc
 new Puzzle(['shelf stable','property of Mars Inc.','edible','sweet treat','one of M&M','chocolate-y','a celebration','nougat-y'],['mars','milky way','galaxy','magic stars','starburst','flying saucers','rocket','sweetbread'],[[5,1,2,3,4,6],[4,1,2,3,5],[7,1,2,3,4,5,6,8],[6,1,2,3,4,5,7],[1],[3,1,2,4],[2,1,3],[1,2]]),
 new Puzzle(['one horse','unicycle','quill','ghost','contacts','monocle','cup'],['has 1 of the 2 usual','__ town','solo transportation','porcupine part','type of writer','messages','eyewear'],[[2,3],[3,1],[4,5],[5,2],[7,6],[1,7],[4]]),
 new Puzzle(['stinger','UHT milk','pasteurized','knees','diss','home for ornamental pony?'],['out to graze?','cutting remark','shelf stable','heated milk','bee part?','thesis'],[[5,2],[3,4],[4,1],[1,5],[2,6],[3]]),
+//
+new Puzzle(['sea__','__line','blue__','__monger','__fly','__cup','__bag','jelly__'],['cheese','fish','bean','tea','butter','horse','shore','crystal'],[[6,7],[7,8],[1],[1,2],[5,6],[4,5],[3,4],[2,3]]),
+new Puzzle(['Yamaha product','quiet in Italy','gaping','yawning','seeing stars','sightseeing in the USA','two-tyred'],['piano','audibly exhausted','hiking the Grand Canyon','touring Hollywood','chasm quality','motorcycle','stunned'],[[1,6],[1],[5,7],[2,5],[7,4],[4,3],[6,2]]),
+new Puzzle(['exit','cube','pay dirt','preserve','jam','mineral','decease'],['ore','salt','pickle','block','die','depart','egress'],[[6,7],[4,5],[1],[2,3],[3,4],[1,2],[5,6]]),
+new Puzzle(['anxiety','search','graze','care for hair','look','gnaw','rubberneck'],['hunt','eat','gawp','worry','brush','panic','comb'],[[4,6],[1,7],[5,2],[7,5],[3,1],[2,4],[3]]),
 ];

@@ -14,9 +14,6 @@ SO_WHATS_GOING_ON = """"
         Above them we have L+ <-> R+
         And below we have L- <-> R-
         So the chain contains  ... L+ R+ L R L- R- ...
-
-
-
     When adding on the LEFT:
         The world is your oyster. Link with anything you like (anything above).
 
