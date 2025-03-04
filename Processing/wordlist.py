@@ -10,18 +10,38 @@ def loadWordList(filename, minLength, maxLength):#
     return words
 
 def get(minLength,maxLength):
-    a = loadWordList('Processing/words.txt', minLength, maxLength)
-    b = loadWordList('Processing/google10k.txt', minLength, maxLength)
-    c = loadWordList('Processing/michigan_words.txt', minLength, maxLength)
-    d = set(nltk.corpus.words.words())
-    e = loadWordList('Processing/collins_scrabble_2019.txt', minLength, maxLength)
-    f = loadWordList('Processing/20k.txt', minLength, maxLength)
+   # michigan = loadWordList('Processing/michigan_words.txt', minLength, maxLength)
+    scrabble = loadWordList('Processing/collins_scrabble_2019.txt', minLength, maxLength)
+    nltkWords = set(nltk.corpus.words.words())
+    michigan_wordsWithVariants = set(loadWordList('Processing/OED_Processor/michigan_words_Out.txt', minLength, maxLength))
+    iweb_60000 = set(loadWordList('Processing/OED_Processor/iweb_60000_Out.txt', minLength, maxLength))
 
-    safeWords = f.intersection(e.intersection(a.intersection(c).union(a.intersection(d)))) #Definitely known by the solver
+    rudeWords = set(loadWordList('Processing/badWords.txt', 0, 50))
 
+    game = set(loadWordList('Processing/12dicts-6.0.2/International/3of6game.txt', 0, 50))
 
-    allWords = a.union(b).union(c).union(d) #Might be known by the solver
+    safeWords = michigan_wordsWithVariants.intersection(iweb_60000).intersection(game).difference(rudeWords) #michigan.intersection(scrabble.intersection(common.intersection(nltkWords))) #Definitely known by the solver
+    allWords = safeWords.union(scrabble) #Might be known by the solver
+
+    assert('hive' in allWords)
+
+    assert('bled' in safeWords)
+    assert('paw' in safeWords)
+    assert('sting' in safeWords)
+    assert('wove' in safeWords)
+    assert('hive' in safeWords)
+    
+    assert(not 'jupe' in safeWords)
+    assert(not 'carl' in safeWords)
+    assert(not 'erg' in safeWords)
+    assert(not 'guar' in safeWords)
+    assert(not 'fuck' in safeWords)
+    assert(not 'ling' in safeWords)
+   # assert(not 'pix' in safeWords)
+    assert(not 'nee' in safeWords)
+
+    assert('pec' in allWords)
+
 
     print('Loaded Words')
     return (safeWords, allWords)
-

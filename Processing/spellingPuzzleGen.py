@@ -1,9 +1,5 @@
 #todo: fix dictionary issue e.g. no 'paw', 'sting', or 'hive'
 
-
-
-
-
 import copy, random, wordlist, wordSplitter
 
 #SETTINGS:
@@ -21,25 +17,41 @@ def suffixGood(word): return len(word) in suffixLengthRange
 #PRECOMPUTE ALL PREFIXES and SUFFIXES of the common wordlist
 prefixes = {} #dictionary of sets
 suffixes = {} #dictionary of sets
+#PRECOMPUTE ALL PREFIXES and SUFFIXES of the complete wordlist
+allPrefixes = {} #dictionary of sets
+allSuffixes = {} #dictionary of sets
 
 def precompute():
-    global prefixes, suffixes
+    global prefixes, suffixes, allPrefixes, allSuffixes
+
+    for word in allWords:
+        for i in range(0,len(word)+1):
+            prefix = word[:i]
+            suffix = word[i:]
+
+            if not (prefix in allPrefixes): allPrefixes[prefix] = set()
+            if not (suffix in allSuffixes): allSuffixes[suffix] = set()
+
+            allPrefixes[prefix].add(suffix)
+            allSuffixes[suffix].add(prefix)
+
+    for prefix in allPrefixes: prefixes[prefix] = set()
+    for suffix in allSuffixes: suffixes[suffix] = set()
+
     for word in words:
         for i in range(0,len(word)+1):
             prefix = word[:i]
             suffix = word[i:]
 
-            if not (prefix in prefixes): prefixes[prefix] = set()
-            if not (suffix in suffixes): suffixes[suffix] = set()
-
             prefixes[prefix].add(suffix)
             suffixes[suffix].add(prefix)
 
-    # Remove uncommon prefixes / suffixes
+    # Remove uncommon prefixes / suffixes from the positive case
     prefixes = {k: v for k, v in prefixes.items() if len(v)>=MIN_FREQ}        
     suffixes = {k: v for k, v in suffixes.items() if len(v)>=MIN_FREQ}
     for prefix in prefixes: prefixes[prefix] = {suffix for suffix in prefixes[prefix] if suffix in suffixes}
     for suffix in suffixes: suffixes[suffix] = {prefix for prefix in suffixes[suffix] if prefix in prefixes}
+
 precompute()
 
 print("Precomputed")
@@ -60,6 +72,16 @@ def calcNumBacklinks(L, R):
             if suffix in prefixes[prefix]: n+=1
         numBacklinks += n
     return numBacklinks
+
+def generateAnswers(L,R):
+    answers = []
+    for l in L:
+        links = []
+        for i in range(len(R)):
+            if R[i] in allPrefixes[l]:
+                links.append(i)
+        answers.append(links)
+    return answers
 
 def generatePuzzle():
     def extendPuzzle(L, R): #recursively tries to extend the puzzle; returns (success, L', R') with the success flag and the expanded lists
@@ -100,7 +122,7 @@ def generatePuzzle():
             for i in range(len(options)-1, -1, -1):
                 suffix = options[i]
                 for prefix in L:
-                    if prefix!=prevPrefix and prefix in suffixes[suffix]:
+                    if prefix!=prevPrefix and prefix in allSuffixes[suffix]:
                         del options[i]
                         break
 
@@ -118,46 +140,43 @@ def generatePuzzle():
         start = random.choice(list(prefixes))
         if prefixGood(start):
             (success, L, R) = extendPuzzle([start], [])
-            if success: return (L, R)
+            if success:
+                return (L, R)
 
-maxReuseSeen = 0 
-
-
-lenL = 4; lenR = 1
-prefixLengthRange = rangeInc(lenL,lenL)
-suffixLengthRange = rangeInc(0,12)
-
-file = open('Processing/outputs/240_spelling_puzzles','a')
-
-for lenL in rangeInc(3,3):
-    allL = set()
-    allR = set()
-    prefixLengthRange = rangeInc(lenL,lenL)
-    numPuzzles = 0
-    while numPuzzles < 2:
-        (L, R) = generatePuzzle()
-        if calcNumBacklinks(L,R)>=6:
-            reuse = (len(allL.intersection(set(L))) + len(allR.intersection(set(R)))) / (puzzleSize*2)
-            reuseDelta = abs(maxReuseSeen - reuse)
-
-            if reuse < 0.5 and reuseDelta < 0.1: #it would be inefficient to increase reuse too quickly
-
-                answers = []
-                for l in L:
-                    links = []
-                    for i in range(len(R)):
-                        if R[i] in prefixes[l]:
-                            links.append(i)
-                    answers.append(links)
-                
-                wordsUsed = []
-                for i in range(len(L)): wordsUsed.append(L[i] + R[i])
-
-                print((reuse, calcNumBacklinks(L,R), numPuzzles, L, R))
-                file.write(wordSplitter.applyPermutationToPuzzle(L, R, answers) + '\n')
-                allL = allL.union(set(L))
-                allR = allR.union(set(R))
-                maxReuseSeen = max(maxReuseSeen, reuse)
-                numPuzzles+=1
+def logPuzzle(L,R,answers):
+   # print('Left:',L)
+   # print('Right:',R)
+    validWords = []
+    for l in range(len(L)):
+        for r in answers[l]:
+            validWords.append(L[l]+R[r])
+    
+    invalidWords = []
+    for l in range(len(L)):
+        for r in set(range(len(R))).difference(set(answers[l])):
+            invalidWords.append(L[l]+R[r])
 
 
+    print('Valid:', validWords)
+    print('Invalid:', invalidWords)
+
+
+file = open('Processing/output','w')
+
+i = 0
+while i<1000:
+    n = random.randint(1,6)
+    if random.randint(0,1)==0:
+        prefixLengthRange = rangeInc(n,n)
+        suffixLengthRange = rangeInc(1,12)
+    else:
+        prefixLengthRange = rangeInc(1,12)
+        suffixLengthRange = rangeInc(n,n)
+
+    (L, R) = generatePuzzle()
+    if calcNumBacklinks(L,R)>=4:
+        answers = generateAnswers(L,R)
+        #logPuzzle(L,R,answers); input()
+        file.write(wordSplitter.applyPermutationToPuzzle(L, R, answers)[0] + '\n')
+        i+=1
+        print(i)
